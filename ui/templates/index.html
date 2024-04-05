@@ -118,51 +118,33 @@
     <section id="couple" class="bg-gray-1">
         <div class="container">
             <div class="row">
+                {% for item in wendingPersion %}
                 <div class="col-md-6 col-xs-12 text-center">
                     <div class="profile">
-                        <img src="https://cdn.biihappy.com/ziiweb/website/65fab00ef4d793223800bdf7/c399f84b36260d4906305bbf47d26b73.jpeg"
-                            class="img-responsive img-circle" alt="Groom" />
-                        <!--<h4>19/10/1995</h4>-->
-                        <h2>Ninh Đức Nguyên</h2>
+                        <img src="{{ item.image }}" class="img-responsive img-circle" alt="Groom" />
+                        <!--<h4>19/10/1995</!--<h4>-->
+                        <h2>{{ item.name }}</h2>
                         <div class="parent-infos">
-
-                            <div class="parent-info"><span class="parent-title">Con bà:</span> <span
-                                    class="parent-name">Nguyễn Thị Vui</span></div>
-                        </div>
-                        <p>Nguyên là chàng trai cao to, vạm vỡ tới từ đất học Nam Định. Nguyên là người luôn vui vẻ, lạc
-                            quan và dễ mến, tuy có lúc hơi hâm hâm nhưng hay được mọi người quý mến.</p>
-                        <div class="social-icons">
-                            <a href="https://www.facebook.com/nguyen58pmnuce/" target="_blank" class="facebook"><i
-                                    class="fa fa-facebook"></i></a>
-
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xs-12 text-center">
-                    <div class="profile">
-                        <img src="https://cdn.biihappy.com/ziiweb/website/65fab00ef4d793223800bdf7/fb823a162491cda5b6db7f869ca55608.jpeg"
-                            class="img-responsive img-circle" alt="Groom" />
-                        <!--<h4>13/05/2003</h4>-->
-                        <h2>Nguyễn Ngọc Hà</h2>
-                        <div class="parent-infos">
+                            {% if item.dad %}
                             <div class="parent-info"><span class="parent-title">Con ông:</span> <span
-                                    class="parent-name">Nguyễn Văn Trọng</span></div>
-
+                                    class="parent-name">{{item.dad}}</span>
+                            </div>
+                            {% endif %}
+                            {% if item.mother %}
                             <div class="parent-info"><span class="parent-title">Con bà:</span> <span
-                                    class="parent-name">Quách Thị Hoa</span></div>
+                                    class="parent-name">{{item.mother}}</span>
+                            </div>
+                            {% endif %}
+
                         </div>
-
-                        <p>Hà là cô gái nhỏ bé, dễ thương tới từ mảnh đất Ba Vì xanh ngát. Hà là người luôn có năng
-                            lượng tích cực, hay cười và vô cùng đáng yêu.</p>
+                        <p>{{ item.contetnt }}</p>
                         <div class="social-icons">
-                            <a href="https://www.facebook.com/profile.php?id=100065362099888" target="_blank"
-                                class="facebook"><i class="fa fa-facebook"></i></a>
-
-
+                            <a href="{{ item.link }}" target="_blank" class="facebook"><i
+                                    class="fa fa-facebook"></i></a>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </section>
@@ -235,8 +217,7 @@
                             <h2 class="timeline-title"><span>{{ item.date }}</span></h2>
                         </div>
                         <div class="timeline-body text-left">
-                            <img src="{{item.image}}"
-                                class="img-responsive" alt="Our Story" />
+                            <img src="{{item.image}}" class="img-responsive" alt="Our Story" />
                             <h2 class="timeline-title">{{ item.title }}</h2>
                             {{ item.content|safe }}
                         </div>
@@ -251,8 +232,7 @@
                             <h2 class="timeline-title"><span>{{ item.date }}</span></h2>
                         </div>
                         <div class="timeline-body text-right">
-                            <img src="{{item.image}}"
-                                class="img-responsive" alt="Our Story" />
+                            <img src="{{item.image}}" class="img-responsive" alt="Our Story" />
                             <h2 class="timeline-title">{{ item.title }}</h2>
                             {{ item.content|safe }}
                         </div>
@@ -698,18 +678,18 @@
             </div>
             <div class="row">
                 <div class="location-grids clearfix">
+                    {% for item in weddingEvent %}
                     <div class="grid col-lg-3 col-sm-6">
                         <div class="grid-item">
                             <div class="img-holder">
-                                <img src="https://cdn.biihappy.com/ziiweb/default/website/7744fc9739685fe61c53cd8fe2cf7e52.png"
+                                <img src="{{ item.image }}"
                                     alt>
                             </div>
                             <div class="datails">
-                                <h3>LỄ ĂN HỎI</h3>
+                                <h3>{{ item.title }}</h3>
                                 <ul>
-                                    <li><strong><i class="ti-time"></i>08:30 19/04/2024</strong></li>
-                                    <li><i class="ti-location-pin"></i>Thôn Văn Minh, Xã Cam Thượng, Huyện Ba Vì, Thành
-                                        phố Hà Nội</li>
+                                    <li><strong><i class="ti-time"></i>{{ item.date }}</strong></li>
+                                    <li><i class="ti-location-pin"></i>{{ item.address }} </li>
                                 </ul>
                                 <div class="calendar-button">
                                     <div class="atcb" style="display:none;">
@@ -732,13 +712,15 @@
                                         }
                                     </div>
                                 </div>
-                                <a class="see-location-btn popup-gmaps" href="https://maps.app.goo.gl/Q4U3kcEWAoizmamt8"
+                                <a class="see-location-btn popup-gmaps" href="{{ item.map }}"
                                     target="_blank">
                                     xem bản đồ <i class="fa fa-angle-right"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
+                   
                     <div class="grid col-lg-3 col-sm-6">
                         <div class="grid-item">
                             <div class="img-holder">
