@@ -35,6 +35,7 @@ class Index(TemplateView):
         banner3 = Banner.objects.filter(location=LocationBannerEnums.location_banner_3.value).first()
         banner4 = Banner.objects.filter(location=LocationBannerEnums.location_banner_4.value).first()
         guestbook_mumber = GuestbookNumber.objects.all()
+        donate = Donate.objects.all()
 
         context['story'] = story
         context['wendingPersion'] = wendingPersion
@@ -55,6 +56,7 @@ class Index(TemplateView):
         context['banner3'] = banner3
         context['banner4'] = banner4
         context['guestbook_mumber'] = guestbook_mumber
+        context['donate'] = donate
         context['form'] = self.form_class()
 
         return context

@@ -21,12 +21,17 @@ class BannerAdmin(admin.ModelAdmin):
 class GuestbookNumberAdmin(admin.ModelAdmin):
     list_display = ["name", "email", "content"]
 
+class DonateAdmin(admin.ModelAdmin):
+    list_display = ['title', 'bank', 'account', 'number', 'branch']
+
 admin.site.register(Story)
 admin.site.register(WendingPersion)
 admin.site.register(WeddingEvent, WeddingEventAdmin)
 admin.site.register(AlbumWedding)
 admin.site.register(Banner, BannerAdmin)
 admin.site.register(GuestbookNumber, GuestbookNumberAdmin)
+admin.site.register(Donate, DonateAdmin)
+
 
 
 

@@ -103,6 +103,18 @@ class GuestbookNumber(models.Model):
         verbose_name="Sổ lưu bút"
         verbose_name_plural = "Sổ lưu bút"
 
+class Donate(models.Model):
+    title = models.CharField(max_length=255, blank=True, null=True, verbose_name="Tiêu đề (vd: Mừng cưới chú rể/cô dâu,...)")
+    image = models.FileField(upload_to="static/images", unique=True, verbose_name="Ảnh mã QR")
+    bank = models.CharField(max_length=255, blank=True, null=True, verbose_name="Tên ngân hàng")
+    account = models.CharField(max_length=255, blank=True, null=True, verbose_name="Tên ngân hàng")
+    number = models.CharField(max_length=255, blank=True, null=True, verbose_name="Số tài khoản")
+    branch = models.CharField(max_length=255, blank=True, null=True, verbose_name="Tên chi nhánh")
+
+    class Meta:
+        verbose_name="Hộp mừng cưới"
+        verbose_name_plural="Hộp mừng cưới"
+
 
     
 

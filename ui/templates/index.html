@@ -1102,26 +1102,18 @@
             </div>
             <div class="donate-modal-body">
                 <div class="donate-box">
+                    {% for item in donate %}
                     <div class="donate-card">
-                        <h3>Mừng cưới đến chú rể</h3>
+                        <h3>{{ item.title }}</h3>
                         <img class="qr-code-image"
-                            src="https://cdn.biihappy.com/ziiweb/website/65fab00ef4d793223800bdf7/3524547d22fbe78eb52dbb82de97b8d0.jpeg">
-                        <p>Ngân hàng: <strong>Vietcombank</strong></p>
-                        <p>Tên tài khoản: <strong>NINH DUC NGUYEN</strong></p>
-                        <p>Số tài khoản: <strong>0931004182737</strong></p>
-                        <p>Chi nhánh: <strong>Hoàng Mai</strong></p>
+                            src="{{ item.image }}">
+                        <p>Ngân hàng: <strong>{{ item.bank }}</strong></p>
+                        <p>Tên tài khoản: <strong>{{ item.account }}</strong></p>
+                        <p>Số tài khoản: <strong>{{ item.number }}</strong></p>
+                        <p>Chi nhánh: <strong>{{ item.branch }}</strong></p>
 
                     </div>
-                    <div class="donate-card">
-                        <h3>Mừng cưới đến cô dâu</h3>
-                        <img class="qr-code-image"
-                            src="https://cdn.biihappy.com/ziiweb/website/65fab00ef4d793223800bdf7/05fdf7bca35427786700998297d71bf5.jpeg">
-                        <p>Ngân hàng: <strong>Vietcombank</strong></p>
-                        <p>Tên tài khoản: <strong>NGUYEN NGOC HA</strong></p>
-                        <p>Số tài khoản: <strong>1023886697</strong></p>
-                        <p>Chi nhánh: <strong>PGD Đan Phượng</strong></p>
-
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
