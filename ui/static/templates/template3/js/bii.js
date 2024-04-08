@@ -52,6 +52,7 @@ window.onload = (event) =>{
 		content.addEventListener('click', function(event) {
 			event.preventDefault();
 			let text = this.textContent || this.innerText;
+			console.log("text", text)
 			document.getElementById('content').value = text;
 		});
 	});

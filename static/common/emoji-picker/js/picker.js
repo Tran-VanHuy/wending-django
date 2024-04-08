@@ -2435,7 +2435,7 @@ class Picker extends SvelteComponent {
 	}
 }
 
-const DEFAULT_DATA_SOURCE = '/common/emoji-picker/js/data.json';
+const DEFAULT_DATA_SOURCE = '/static/common/emoji-picker/js/data.json';
 const DEFAULT_LOCALE = 'en';
 
 var enI18n = {

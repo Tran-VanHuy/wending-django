@@ -52,7 +52,7 @@ window.onload = (event) =>{
 		content.addEventListener('click', function(event) {
 			event.preventDefault();
 			let text = this.textContent || this.innerText;
-			document.getElementById('content').value = text;
+			document.getElementById('id_content').value = text;
 		});
 	});
 };

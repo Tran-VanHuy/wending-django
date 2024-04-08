@@ -2,6 +2,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+	{% load static %}
 	<meta charset="utf-8">
 	<meta name="author" content="Biihappy">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -244,8 +245,8 @@
         	</div>
         	        </div>
     </main>
-	<script src="./xntd-template/script.js?v=20231217"></script>
-	<script>
+	<script src="{% static 'xntd-template/script.js'%}"></script>
+	<script>	
 		var webroot = 'https://ducnguyenngocha.iwedding.info';
 		var events = JSON.parse('{"65fab00ef4d793223800bdf3":"L\u1ec4 \u0102N H\u1eceI","65fab00ef4d793223800bdf4":"TI\u1ec6C C\u01af\u1edaI NH\u00c0 G\u00c1I","65fab00ef4d793223800bdf5":"L\u1ec4 C\u01af\u1edaI NH\u00c0 TRAI","65fab00ef4d793223800bdf6":"TI\u1ec6C C\u01af\u1edaI NH\u00c0 TRAI"}');
 		var is_premium = '1' ;

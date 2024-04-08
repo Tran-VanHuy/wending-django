@@ -145,11 +145,11 @@ $(document).ready(function() {
             messages: {
                 name: {
                     required: 'Vui lòng nhập tên của bạn.',
-                    minlength: 'TÃªn pháº£i lá»›n hÆ¡n 5 kÃ½ tá»±.',
+                    minlength: 'Tên phải lớn hơn 5 ký tự.',
                 },
                 content: {
                     required: 'Vui lòng nhập lời chúc.',
-                    minlength: 'Lá»i chÃºc pháº£i lá»›n hÆ¡n 10 kÃ½ tá»±.',
+                    minlength: 'Lời chúc phải lớn hơn 10 ký tự.',
                 },
                 email: {
                     email: 'Địa chỉ email không hợp lệ.'
@@ -163,40 +163,7 @@ $(document).ready(function() {
 				}
 			},
 
-            submitHandler: function (form) {
-                $("#loader").css("display", "inline-block");
-                $.ajax({
-                    type: "POST",
-                    url: "/wish",
-                    data: $(form).serialize(),
-                    success: function (res) {
-                        $( "#loader").hide();
-                        if(!res.error){
-                            $('.wish-box').scrollTop(0);
-                            $('.wish-box').prepend('<div class="wish-box-item bg"><strong>'+$(form).find("input[name='name']").val().replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;")+'</strong><p>'+$(form).find("textarea[name='content']").val().replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;")+'</p></div>');
-                            $( "#success").html(res.message).slideDown( "slow" );
-                            setTimeout(function() {
-                            $( "#success").slideUp( "slow" );
-                            }, 5000);
-                        }else{
-                            $( "#error").html(res.message).slideDown( "slow" );
-                            setTimeout(function() {
-                            $( "#error").slideUp( "slow" );
-                            }, 5000);
-                        }
-
-                        form.reset();
-                    },
-                    error: function() {
-                        $( "#loader").hide();
-                        $( "#error").slideDown( "slow" );
-                        setTimeout(function() {
-                        $( "#error").slideUp( "slow" );
-                        }, 5000);
-                    }
-                });
-                return false;
-            }
+           
 
         });
     }

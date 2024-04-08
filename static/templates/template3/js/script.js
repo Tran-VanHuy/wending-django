@@ -145,11 +145,11 @@ $(document).ready(function() {
             messages: {
                 name: {
                     required: 'Vui lòng nhập tên của bạn.',
-                    minlength: 'TÃªn pháº£i lá»›n hÆ¡n 5 kÃ½ tá»±.',
+                    minlength: 'Tên phải lớn hơn 5 ký tự.',
                 },
                 content: {
                     required: 'Vui lòng nhập lời chúc.',
-                    minlength: 'Lá»i chÃºc pháº£i lá»›n hÆ¡n 10 kÃ½ tá»±.',
+                    minlength: 'Lời chúc phải lớn hơn 10 ký tự.',
                 },
                 email: {
                     email: 'Địa chỉ email không hợp lệ.'
@@ -163,7 +163,7 @@ $(document).ready(function() {
 				}
 			},
 
-            submitHandler: function (form) {
+            {% comment %} submitHandler: function (form) {
                 $("#loader").css("display", "inline-block");
                 $.ajax({
                     type: "POST",
@@ -196,7 +196,7 @@ $(document).ready(function() {
                     }
                 });
                 return false;
-            }
+            } {% endcomment %}
 
         });
     }
